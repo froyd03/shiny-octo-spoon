@@ -1,0 +1,55 @@
+/* Container Box */
+.container-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: #333;
+    width: 300px;
+}
+
+/* Title */
+.container-box h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: transparent;
+    color: #333;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: #444;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #666;
+}
+
+/* Create Account Text */
+.account-text {
+    margin-top: 10px;
+    font-size: 12px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container-box">
+        <h2>Signup</h2>
+        <form>
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+
+            <label for="role">Select Role:</label>
+            <select name="role" required>
+                <option value="" disabled selected>Choose a role</option>
+                <option value="auditor">Auditor</option>
+                <option value="treasurer">Treasurer</option>
+            </select>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</body>
+</html> 
