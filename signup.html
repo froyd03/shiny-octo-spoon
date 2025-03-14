@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    <div class="container-box">
+    <div class="container-box" id="signupForm">
         <h2>Signup</h2>
         <form>
             <input type="text" name="fullName" placeholder="Full Name" required>
@@ -21,8 +21,12 @@
                 <option value="treasurer">Treasurer</option>
             </select>
 
+            <p class="error" id="errorMessage"></p>
+            <p class="success" id="successMessage"></p>
+
             <button type="submit">Sign Up</button>
         </form>
     </div>
+    <script src="./signup.js"></script>
 </body>
 </html> 
