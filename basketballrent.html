@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Basketball Court Rentals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <h2>Basketball Court Rentals</h2>
+
+        <h3>Record Rental Payment</h3>
+        <form id="rentalForm">
+            <input type="text" id="renterName" placeholder="Renter Name" required>
+            <input type="date" id="rentalDate" required>
+            <input type="number" id="rentalAmount" placeholder="Amount Paid" required>
+            <button type="submit">Add Rental Income</button>
+        </form>
+
+        <h3>Rental Payment Records</h3>
+        <table id="rentalTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Renter Name</th>
+                    <th>Amount Paid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rental records will be added here -->
+            </tbody>
+        </table>
+
+        <h3>Total Rental Income: ₱<span id="totalRentals">0</span></h3>
+    </div>
+</body>
+</html>
