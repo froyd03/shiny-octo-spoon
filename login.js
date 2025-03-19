@@ -11,13 +11,12 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // Retrieve user data from localStorage
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
 
-    console.log((storedUserData.email === email) && (storedUserData.password == password))
-    console.log(storedUserData)
+    console.log(storedUserData && (storedUserData.email === email) && (storedUserData.password == password));
 
     // Check if user exists and password is correct (For demo, storing a static password)
     if (storedUserData && (storedUserData.email === email) && (storedUserData.password == password)) {
         // Redirect to another page on successful login
-        window.location.href = "dashboard.html";
+        window.location.href = "/src/pages/dashboard/dashboard.html";
     } else {
         errorMessage.textContent = "Invalid email or password. Please try again.";
     }

@@ -3,8 +3,20 @@ let transactions = [
     { date: "2025-03-03", type: "Basketball Rental", description: "Court Rental - Jane Smith", amount: 500 },
     { date: "2025-03-07", type: "Expense", description: "Security Guard Salary", amount: -3000 },
     { date: "2025-03-10", type: "Dues Payment", description: "Homeowner - Michael Johnson", amount: 1800 },
-    { date: "2025-03-12", type: "Expense", description: "Electricity Bill", amount: -1200 }
+    { date: "2025-03-12", type: "Expense", description: "Electricity Bill", amount: -1200 },
+    { date: "2025-04-01", type: "Dues Payment", description: "Homeowner - John Doe", amount: 2000 },
+    { date: "2025-05-03", type: "Basketball Rental", description: "Court Rental - Jane Smith", amount: 500 },
+    { date: "2025-06-07", type: "Expense", description: "Security Guard Salary", amount: -3000 },
+    { date: "2025-07-12", type: "Dues Payment", description: "Homeowner - Michael Johnson", amount: 1800 },
+    { date: "2025-08-12", type: "Expense", description: "Electricity Bill", amount: -1200 }
 ];
+
+const modal = document.querySelector('.modal');
+
+function showReportForm(e){
+    e.preventDefault();
+    modal.style.display = "flex";
+}
 
 function generateReport() {
     let startDate = document.getElementById("startDate").value;
@@ -36,6 +48,7 @@ function generateReport() {
     document.getElementById("totalRentals").innerText = totalRentals;
     document.getElementById("totalExpenses").innerText = totalExpenses;
     document.getElementById("netProfit").innerText = totalDues + totalRentals - totalExpenses;
+    modal.style.display = "none";
 }
 
 // Export to PDF (Requires jsPDF Library)

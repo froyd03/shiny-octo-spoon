@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Signup Form</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="container-box" id="signupForm">
+            <div class="logo-container">
+                <img src="../../assets/SMDS-logo-only.png" class="logo" alt="">
+            </div>
+            <h2>Create your account to get started.</h2>
+            <form>
+                <input type="text" name="fullName" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+    
+                <label for="role">Select Role:</label>
+                <select name="role" required>
+                    <option value="" disabled selected>Choose a role</option>
+                    <option value="auditor">Auditor</option>
+                    <option value="treasurer">Treasurer</option>
+                </select>
+    
+                <p class="error" id="errorMessage"></p>
+                <p class="success" id="successMessage"></p>
+    
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html> 
