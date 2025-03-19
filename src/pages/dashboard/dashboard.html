@@ -228,8 +228,11 @@
 
         function editHomeowner(row) {
             const cells = row.getElementsByTagName("td");
+            const fullName = cells[0].textContent.trim().split(" ");
+            const middleName = fullName.length > 2 ? fullName.slice(1, -1).join(" ") : "";
 
-            document.getElementById("firstName").value = cells[0].textContent.split(" ");
+            document.getElementById("firstName").value = cells[0].textContent.split(" ")[0];
+            document.getElementById("middleName").value = middleName;
             document.getElementById("lastName").value = cells[0].textContent.split(" ").slice(-1)[0];
             document.getElementById("contactInfo").value = cells[1].textContent;
             document.getElementById("address").value = cells[2].textContent;
@@ -238,12 +241,6 @@
 
             row.remove();
             modal.style.display = "flex";
-        }
-
-        function deleteHomeowner(row) {
-            if (confirm("Are you sure you want to delete this homeowner?")) {
-                row.remove();
-            }
         }
     });
 

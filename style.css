@@ -3,6 +3,7 @@
 body{
     display: flex;
     width: 100%;
+    margin: 0;
     font-family: sans-serif;
     background-color: #F0F1F3;
 }
@@ -199,6 +200,10 @@ table{
     text-align: left;
 }
 
+.tblContainer{
+    overflow-y: auto;
+}
+
 tr{
     border-bottom: 1px solid #0000002a;
 }
@@ -266,7 +271,18 @@ select{
     }
 }
 
-.modal{
+.formBtn{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 1rem;
+
+    & > button{
+        width: max-content;
+    }
+}
+
+.modal, .modalEditForm{
     position: absolute;
     z-index: 1;
     top: 0;
@@ -279,7 +295,7 @@ select{
     background-color: #3333331c;
 }
 
-#homeownerForm{
+#homeownerForm, #editHomeownerForm{
     background-color: #FFFF;
     padding: 2rem;
     border-radius: 12px;
