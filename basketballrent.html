@@ -5,32 +5,93 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
+    <nav>
+        <div class="nav-header">
+            <img src="../../assets/SMDS-logo-only.png" width='80px'/>
+        </div>   
+        <a href="../dashboard/dashboard.html">
+            <div class='navBtn'>
+                <img src="../../assets/home-agreement.png" width='20px' height='20px' alt="error">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <a href="">
+            <div style="background-color:#4A5878; color: white;" class='navBtn'>
+                <span>Rentals</span>
+            </div>
+        </a>
+        <a href="">
+            <div style="background-color:#4A5878; color: white;" class='navBtn'>
+                <span>Expenses</span>
+            </div>
+        </a>
+        <a href="../reports/financial-reports.html">
+            <div class='navBtn'>
+                <span>Reports</span>
+            </div>
+        </a>
+    </nav>
+
+    <section>
         <h2>Basketball Court Rentals</h2>
+        <div class="overview">
+            <div class="layout">
+                <h3>Rental Summary</h3>
+                <div class="overview-item">
+                    <div class="item">
+                        <p>Total Rental Income</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="totalRentals">0</b></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <h3>Record Rental Payment</h3>
-        <form id="rentalForm">
-            <input type="text" id="renterName" placeholder="Renter Name" required>
-            <input type="date" id="rentalDate" required>
-            <input type="number" id="rentalAmount" placeholder="Amount Paid" required>
-            <button type="submit">Add Rental Income</button>
-        </form>
+        <div class="modal" style="display: none;">
+            <div id="rentalForm">
+                <h3>Record Rental Payment</h3>
+                <label for="renterName">Renter Name</label>
+                <input type="text" id="renterName" placeholder="Enter name" required>
 
-        <h3>Rental Payment Records</h3>
-        <table id="rentalTable">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Renter Name</th>
-                    <th>Amount Paid</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Rental records will be added here -->
-            </tbody>
-        </table>
+                <label for="rentalDate">Rental Date</label>
+                <input type="date" id="rentalDate" required>
 
-        <h3>Total Rental Income: ₱<span id="totalRentals">0</span></h3>
-    </div>
+                <label for="rentalAmount">Amount Paid</label>
+                <input type="number" id="rentalAmount" placeholder="₱" required>
+
+                <button onclick="addRental()">Add Rental Income</button>
+            </div>
+        </div>
+
+        <div class="reports-container">
+            <div class="homeownerList">
+                <div class="headerTblList">
+                    <h3>Rental Payment Records</h3>
+                    <div class="btn">
+                        <button onclick="showRentalForm(event)" id="newRental">Add Rental</button>
+                        <button onclick="exportToPDF()" class="filter">Export PDF</button>
+                        <button onclick="exportToExcel()" class="filter">Export Excel</button>
+                    </div>
+                </div>
+                <table id="rentalTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Renter Name</th>
+                            <th>Amount Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="basketballrent.js"></script>
 </body>
 </html>
+

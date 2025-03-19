@@ -5,15 +5,93 @@
     <link rel="stylesheet" href="../../../style.css">
 </head>
 <body>
-    <div>
+    <nav>
+        <div class="nav-header">
+            <img src="../../assets/SMDS-logo-only.png" width='80px'/>
+        </div>   
+        <a href="../dashboard/dashboard.html">
+            <div class='navBtn'>
+                <img src="../../assets/home-agreement.png" width='20px' height='20px' alt="error">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <a href="../basketball-rentals/basketball-rentals.html">
+            <div class='navBtn'>
+                <span>Rentals</span>
+            </div>
+        </a>
+        <a href="../expenses/expenses.html">
+            <div class='navBtn'>
+                <span>Expenses</span>
+            </div>
+        </a>
+        <a href="../reports/financial-reports.html">
+            <div class='navBtn'>
+                <span>Reports</span>
+            </div>
+        </a>
+    </nav>
+
+    <section>
         <h2>Payment Tracking</h2>
-        <form id="paymentForm">
-            <input type="text" id="homeownerName" placeholder="Homeowner Name" required>
-            <input type="number" id="amount" placeholder="Amount Paid" required>
-            <button type="submit">Record Payment</button>
-        </form>
-        <h3>Payment Records</h3>
-        <ul id="paymentList"></ul>
-    </div>
+        <div class="overview">
+            <div class="layout">
+                <h3>Payment Summary</h3>
+                <div class="overview-item">
+                    <div class="item">
+                        <p>Total Payments Collected</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="totalPayments">0</b></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" style="display: none;">
+            <div id="paymentForm">
+                <h3>Record Payment</h3>
+                <label for="homeownerName">Homeowner Name</label>
+                <input type="text" id="homeownerName" placeholder="Enter name" required>
+
+                <label for="paymentDate">Payment Date</label>
+                <input type="date" id="paymentDate" required>
+
+                <label for="amount">Amount Paid</label>
+                <input type="number" id="amount" placeholder="₱" required>
+
+                <button onclick="addPayment()">Record Payment</button>
+            </div>
+        </div>
+
+        <div class="reports-container">
+            <div class="homeownerList">
+                <div class="headerTblList">
+                    <h3>Payment Records</h3>
+                    <div class="btn">
+                        <button onclick="showPaymentForm(event)" id="newPayment">Add Payment</button>
+                        <button onclick="exportToPDF()" class="filter">Export PDF</button>
+                        <button onclick="exportToExcel()" class="filter">Export Excel</button>
+                    </div>
+                </div>
+                <table id="paymentTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Homeowner Name</th>
+                            <th>Amount Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Payment records will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="payment-tracking.js"></script>
 </body>
 </html>
+

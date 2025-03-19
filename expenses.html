@@ -5,31 +5,92 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <h2>Manage Expenses</h2>
+    <nav>
+        <div class="nav-header">
+            <img src="../../assets/SMDS-logo-only.png" width='80px'/>
+        </div>   
+        <a href="../dashboard/dashboard.html">
+            <div class='navBtn'>
+                <img src="../../assets/home-agreement.png" width='20px' height='20px' alt="error">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <a href="">
+            <div class='navBtn'>
+                <span>Rentals</span>
+            </div>
+        </a>
+        <a href="">
+            <div style="background-color:#4A5878; color: white;" class='navBtn'>
+                <span>Expenses</span>
+            </div>
+        </a>
+        <a href="../reports/financial-reports.html">
+            <div class='navBtn'>
+                <span>Reports</span>
+            </div>
+        </a>
+    </nav>
 
-        <h3>Record Expense</h3>
-        <form id="expenseForm">
-            <input type="text" id="expenseName" placeholder="Expense Name" required>
-            <input type="number" id="expenseAmount" placeholder="Amount" required>
-            <button type="submit">Add Expense</button>
-        </form>
+    <section>
+        <h2>Subdivision Expenses</h2>
+        <div class="overview">
+            <div class="layout">
+                <h3>Expense Summary</h3>
+                <div class="overview-item">
+                    <div class="item">
+                        <p>Total Expenses</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="totalExpenses">0</b></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <h3>Expense Records</h3>
-        <table id="expenseTable">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Expense Name</th>
-                    <th>Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Expense records will be added here -->
-            </tbody>
-        </table>
+        <div class="modal" style="display: none;">
+            <div id="expenseForm">
+                <h3>Record Expense</h3>
+                <label for="expenseName">Expense Name</label>
+                <input type="text" id="expenseName" placeholder="Enter expense name" required>
 
-        <h3>Total Expenses: ₱<span id="totalExpenses">0</span></h3>
-    </div>
+                <label for="expenseDate">Expense Date</label>
+                <input type="date" id="expenseDate" required>
+
+                <label for="expenseAmount">Amount</label>
+                <input type="number" id="expenseAmount" placeholder="₱" required>
+
+                <button onclick="addExpense()">Add Expense</button>
+            </div>
+        </div>
+
+        <div class="reports-container">
+            <div class="homeownerList">
+                <div class="headerTblList">
+                    <h3>Expense Records</h3>
+                    <div class="btn">
+                        <button onclick="showExpenseForm(event)" id="newExpense">Add Expense</button>
+                        <button onclick="exportToPDF()" class="filter">Export PDF</button>
+                        <button onclick="exportToExcel()" class="filter">Export Excel</button>
+                    </div>
+                </div>
+                <table id="expenseTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Expense Name</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Expense records will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="expenses.js"></script>
 </body>
 </html>
