@@ -16,7 +16,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     // Check if user exists and password is correct (For demo, storing a static password)
     if (storedUserData && (storedUserData.email === email) && (storedUserData.password == password)) {
         // Redirect to another page on successful login
-        window.location.href = "/src/pages/dashboard/homeowners.html";
+        window.location.href = "/src/pages/dashboard/dashboard.html";
     } else {
         errorMessage.textContent = "Invalid email or password. Please try again.";
     }

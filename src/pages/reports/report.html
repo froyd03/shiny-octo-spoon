@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Financial Reports</title>
+    <link rel="stylesheet" href="../../../style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-header">
+            <img src="../../assets/SMDS-logo-only.png" width='80px'/>
+        </div>   
+        <a href="../dashboard/dashboard.html">
+            <div class='navBtn'>
+                <img src="../../assets/home-agreement.png" width='20px' height='20px' alt="error">
+                <span>Dashboard</span>
+            </div>
+        </a>
+        <a href="">
+            <div class='navBtn'>
+                <span>Rentals</span>
+            </div>
+        </a>
+        <a href="">
+            <div style="background-color:#4A5878; color: white;" class='navBtn'>
+                <span>Reports</span>
+            </div>
+        </a>
+    </nav>
+    <section>
+        <h2>Subdivision Financial Report</h2>
+        <div class="overview">
+            <div class="layout">
+                <h3>Reports Summary</h3>
+                <div class="overview-item">
+                    <div class="item">
+                        <p>Total Homeowner Dues</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4 >₱<b id="totalDues">0</b></h4>
+                        </div>
+                    </div>
+                    <span class="vl"></span>
+                    <div class="item">
+                        <p>Total Other Income</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4 >₱<b id="totalRentals">0</b></h4>
+                        </div>
+                    </div>
+                    <span class="vl"></span>
+                    <div class="item">
+                        <p>Total Expenses</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="totalExpenses">0</b></h4>
+                        </div>
+                    </div>
+                    <span class="vl"></span>
+                    <div class="item">
+                        <p>Net Profit/Loss</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="netProfit">0</b></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" style="display: none;">
+            <div id="reportForm">
+                <label for="dateRange">Select Date Range</label>
+                
+                <div>
+                    <label for="startDate">Start</label>
+                    <input type="date" id="startDate"> 
+                </div>
+                <div>
+                    <label for="endDate">End</label>
+                    <input type="date" id="endDate">
+                </div>
+                
+                <button type="submit" onclick="generateReport()">Generate Report</button>
+            </div>
+        </div>
+        <div class="reports-container">
+    
+            <div class="homeownerList">
+                <div class="headerTblList">
+                    <h3>Transaction Records</h3>
+                    <div class="btn">
+                        <button onclick="showReportForm(event)" id="newHomeowner">Generate</button>
+                        <button onclick="exportToPDF()" class="filter">Export PDF</button>
+                        <button onclick="exportToExcel()"class="filter">Export Excel</button>
+                        <button class="filter">Filter</button>
+                    </div>
+                </div>
+                <table id="reportTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be added dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+   
+    <script src="report.js"></script>
+</body>
+</html>
