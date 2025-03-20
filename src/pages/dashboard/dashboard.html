@@ -17,24 +17,25 @@
                     <span>Dashboard</span>
                 </div>
             </a>
-            <a href="">
+            <a href="../expenses/expenses.html">
                 <div class='navBtn'>
-                    <span>Rentals</span>
-                </div>
-            </a>
-            <a href="">
-                <div style="background-color:#4A5878; color: white;" class='navBtn'>
+                    <img src="../../assets/expenses.png" width='25px' height='25px' alt="error">
                     <span>Expenses</span>
                 </div>
             </a>
             <a href="../reports/report.html">
                 <div class='navBtn'>
+                    <img src="../../assets/file.png" width='23px' height='23px' alt="error">
                     <span>Reports</span>
+                </div>
+            </a>
+            <a href="../payment/payments.html">
+                <div class='navBtn'>
+                    <span>Payment</span>
                 </div>
             </a>
     </nav>
     <section>
-        
         <h2>Homeowner Management</h2>
         <div class="overview">
             <div class="layout">
@@ -67,7 +68,7 @@
             </div>
         </div>
         <div class="modal" style="display: none;">
-            <form id="homeownerForm">
+            <form id="modalForm">
                 <h3>New Homeowner</h3>
                 <label for="lastName">Last name</label>
                 <input type="text" id="lastName" required><br>
@@ -95,8 +96,8 @@
                     </label>
                     <label for="method">Payment Status:
                         <select id="paymentStatus">
-                            <option value="Active">Active</option>
-                            <option value="Deliquent">Deliquent</option>
+                            <option value="Paid">Paid</option>
+                            <option value="Pending">Pending</option>
                         </select>
                     </label>
                 </div>
@@ -107,12 +108,13 @@
         <div class="homeownerList">
             <div class="headerTblList">
                 <h3>Homeowners List</h3>
+                <input type="text" class="searchInp" placeholder="Search here">
                 <div class="btn">
                     <button id="newHomeowner"> New</button>
                     <button class="filter">filter</button>
                 </div>
             </div>
-            <table>
+            <table id="homeownersTable">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -131,18 +133,28 @@
     <script>
     
     let homeowner = [
-        { name: "John Doe", contact: "01122334455", address: "blk10 lot18 Rose st.", method: "Cash", status: "Active" },
-        { name: "Linda inday", contact: "09988776655", address: "blk12 lot8 Sampaguita st.", method: "Maya", status: "Deliquent" },
-        { name: "Marites Robert", contact: "09123456789", address: "blk15 lot12 Gumamela st.", method: "Gcash", status: "Active" },
-        { name: "Chinggoy Estrada", contact: "09214354658", address: "blk2 lot5 Rose st.", method: "Paypal", status: "Active" },
-        { name: "Imelda Marcos", contact: "05155232543", address: "blk9 lot22 Santan st.", method: "Cash", status: "Active" }
+        { name: "John Doe", contact: "01122334455", address: "blk10 lot18 Rose st.", method: "Cash", status: "Paid" },
+        { name: "Linda inday", contact: "09988776655", address: "blk12 lot8 Sampaguita st.", method: "Maya", status: "Paid" },
+        { name: "Marites Robert", contact: "09123456789", address: "blk15 lot12 Gumamela st.", method: "Gcash", status: "Pending" },
+        { name: "Chinggoy Estrada", contact: "09214354658", address: "blk2 lot5 Rose st.", method: "Paypal", status: "paid" },
+        { name: "Imelda Marcos", contact: "05155232543", address: "blk9 lot22 Santan st.", method: "Cash", status: "Pending" }
     ];
 
     document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("homeownerForm");
-        const tableBody = document.getElementById("homeownersTableBody");
+        const searchInput = document.querySelector(".searchInp");
+        const tableRows = document.querySelectorAll("#homeownersTable tbody tr");
 
-        
+        searchInput.addEventListener("keyup", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            document.querySelectorAll("#homeownersTableBody tr").forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(searchTerm) ? "" : "none";
+            });
+        });
+
+        const form = document.getElementById("modalForm");
+        const tableBody = document.getElementById("homeownersTableBody");
+  
         homeowner.forEach((value, index) => {
             const row = document.createElement("tr");
             row.innerHTML += `
@@ -246,8 +258,15 @@
 
             row.remove();
             modal.style.display = "flex";
+            console.log(row);
         }
     });
+
+    function deleteHomeowner(row) {
+        if (confirm("Are you sure you want to delete this homeowner?")) {
+            row.remove();
+        }
+    }
 
     </script>
     

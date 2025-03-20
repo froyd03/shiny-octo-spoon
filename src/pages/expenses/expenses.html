@@ -2,34 +2,36 @@
 <html lang="en">
 <head>
     <title>Subdivision Expenses</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../style.css">
 </head>
 <body>
     <nav>
         <div class="nav-header">
             <img src="../../assets/SMDS-logo-only.png" width='80px'/>
         </div>   
-        <a href="../dashboard/dashboard.html">
-            <div class='navBtn'>
-                <img src="../../assets/home-agreement.png" width='20px' height='20px' alt="error">
-                <span>Dashboard</span>
-            </div>
-        </a>
-        <a href="">
-            <div class='navBtn'>
-                <span>Rentals</span>
-            </div>
-        </a>
-        <a href="">
-            <div style="background-color:#4A5878; color: white;" class='navBtn'>
-                <span>Expenses</span>
-            </div>
-        </a>
-        <a href="../reports/financial-reports.html">
-            <div class='navBtn'>
-                <span>Reports</span>
-            </div>
-        </a>
+            <a href="../dashboard/dashboard.html">
+                <div class='navBtn'>
+                    <img src="../../assets/home-agreement.png" width='20px' height='20px' alt="error">
+                    <span>Dashboard</span>
+                </div>
+            </a>
+            <a href="../expenses/expenses.html">
+                <div style="background-color:#4A5878; color: white;" class='navBtn' class='navBtn'>
+                    <img src="../../assets/expenses.png" width='25px' height='25px' alt="error">
+                    <span>Expenses</span>
+                </div>
+            </a>
+            <a href="../reports/report.html">
+                <div class='navBtn'>
+                    <img src="../../assets/file.png" width='23px' height='23px' alt="error">
+                    <span>Reports</span>
+                </div>
+            </a>
+            <a href="../payment/payments.html">
+                <div class='navBtn'>
+                    <span>Payment</span>
+                </div>
+            </a>
     </nav>
 
     <section>
@@ -39,7 +41,23 @@
                 <h3>Expense Summary</h3>
                 <div class="overview-item">
                     <div class="item">
-                        <p>Total Expenses</p>
+                        <p>Last 24hr</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="totalExpenses">0</b></h4>
+                        </div>
+                    </div>
+                    <span class="vl"></span>
+                    <div class="item">
+                        <p>Last 7 days</p>
+                        <div class='sales'>
+                            <img width='30px' alt='error' height='30px'/>
+                            <h4>₱<b id="totalExpenses">0</b></h4>
+                        </div>
+                    </div>
+                    <span class="vl"></span>
+                    <div class="item">
+                        <p>Last 30 days</p>
                         <div class='sales'>
                             <img width='30px' alt='error' height='30px'/>
                             <h4>₱<b id="totalExpenses">0</b></h4>
@@ -50,7 +68,7 @@
         </div>
 
         <div class="modal" style="display: none;">
-            <div id="expenseForm">
+            <form id="modalForm">
                 <h3>Record Expense</h3>
                 <label for="expenseName">Expense Name</label>
                 <input type="text" id="expenseName" placeholder="Enter expense name" required>
@@ -62,7 +80,7 @@
                 <input type="number" id="expenseAmount" placeholder="₱" required>
 
                 <button onclick="addExpense()">Add Expense</button>
-            </div>
+            </form>
         </div>
 
         <div class="reports-container">

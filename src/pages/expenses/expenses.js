@@ -5,18 +5,19 @@ function addExpense() {
     let expenseName = document.getElementById("expenseName").value;
     let expenseDate = document.getElementById("expenseDate").value;
     let expenseAmount = parseFloat(document.getElementById("expenseAmount").value);
+    const modal = document.querySelector(".modal");
 
     if (!expenseName || !expenseDate || isNaN(expenseAmount) || expenseAmount <= 0) {
-        alert("Please enter valid expense details.");
+        modal.style.display = "none";
         return;
     }
 
     totalExpenses += expenseAmount;
     expenseTransactions.push({ date: expenseDate, name: expenseName, amount: expenseAmount });
 
+    modal.style.display = "none";
     updateExpenses();
-    document.getElementById("expenseForm").reset();
-    document.querySelector(".modal").style.display = "none"; // Close form after submission
+    document.getElementById("modalForm").reset();
 }
 
 function updateExpenses() {
@@ -32,11 +33,12 @@ function updateExpenses() {
         </tr>`;
         tableBody.innerHTML += row;
     });
+
 }
 
 function showExpenseForm(event) {
     event.preventDefault();
-    document.querySelector(".modal").style.display = "block";
+    document.querySelector(".modal").style.display = "flex";
 }
 
 // Export to PDF (Requires jsPDF)

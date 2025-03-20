@@ -36,7 +36,7 @@ function updatePayments() {
 
 function showPaymentForm(event) {
     event.preventDefault();
-    document.querySelector(".modal").style.display = "block";
+    document.querySelector(".modal").style.display = "flex";
 }
 
 // Export to PDF (Requires jsPDF)
